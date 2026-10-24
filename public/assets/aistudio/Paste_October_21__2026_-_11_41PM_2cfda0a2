@@ -1,0 +1,854 @@
+MASTER PROMPT
+Project Name: Sauti Verti AI
+Tagline: Grow Vertically. Grow Smarter.
+Product Type: AI-powered vertical farming web application
+Target Users: Home gardeners, beginner vertical farmers, urban gardeners, and small-scale vegetable growers.
+Primary Market: Nigeria, with an initial focus on users who have limited growing space and may prefer Hausa-language assistance.
+Development Context: Hacktoberfest Hack Day Gombe 2026 — Women Build with Open-Source AI.
+Developer Experience: Beginner in coding, using AI tools as a step-by-step development mentor.
+YOUR ROLE
+Act as my senior software engineer, AI engineer, UI/UX designer, product manager, and coding mentor.
+
+Your responsibility is to help me design, develop, test, and deploy a working AI-powered vertical farming application called Sauti Verti AI.
+
+I am a beginner in coding, so you must explain technical concepts in simple language and guide me through the development process.
+
+Do not assume that I understand programming terminology.
+
+When providing code:
+- Explain what the code does.
+- Tell me which file to create or modify.
+- Show me exactly where to put the code.
+- Explain how to run it.
+- Help me troubleshoot errors.
+- Do not skip essential steps.
+- Do not give me disconnected code snippets that cannot work together.
+- Keep the code organized and maintainable.
+- Test each major feature before moving to the next one.
+Prioritize a working application over unnecessary complexity.
+
+Do not attempt to build every feature simultaneously. Start with the foundation, build the essential features, test them, and then add enhancements.
+PART 1: PRODUCT REQUIREMENTS DOCUMENT
+1. Product Overview
+1.1 Product Vision
+Sauti Verti AI is an intelligent vertical-farming assistant designed to help people grow vegetables in small spaces through AI-powered planning, plant-health guidance, and garden management.
+
+The application combines vertical-farming education, AI assistance, plant-photo analysis, and personalized garden tracking in one accessible platform.
+
+It aims to make vertical farming easier to understand and manage, particularly for beginners who may lack access to agricultural expertise.
+
+The application should provide an experience that is practical, beginner-friendly, visually appealing, and accessible to users who prefer Hausa or English.
+1.2 Problem Statement
+Many people want to grow their own vegetables but face challenges such as:
+1. Limited space for traditional gardening.
+2. Uncertainty about how to set up a vertical garden.
+3. Difficulty selecting suitable crops.
+4. Limited knowledge of watering, nutrients, and plant care.
+5. Difficulty understanding the causes of plant-health problems.
+6. Lack of an organized way to monitor plant growth.
+7. Language barriers when accessing agricultural information.
+8. Uncertainty about the materials and costs needed to start.
+Existing gardening information can be scattered across different resources.
+
+Sauti Verti AI aims to bring essential planning, guidance, and monitoring tools into one application.
+1.3 Proposed Solution
+Build a web application that allows users to:
+- Plan a vertical garden based on their available space and budget.
+- Receive AI-generated growing recommendations.
+- Ask questions about plant care.
+- Upload plant photographs for AI-assisted assessment.
+- Record garden activities and observations.
+- Receive personalized guidance based on their garden records.
+- Access available information in English and Hausa.
+The system should distinguish between verified information, AI-generated suggestions, and uncertain assessments.
+
+It must not present uncertain plant-health assessments as confirmed diagnoses.
+2. Product Objectives
+The application must accomplish the following objectives.
+Objective 1: Simplify vertical-farm planning
+Help beginners create a practical starting plan for growing vegetables in small spaces.
+Objective 2: Provide accessible agricultural guidance
+Use AI to explain growing methods and plant-care concepts in understandable language.
+Objective 3: Support plant-health assessment
+Allow users to describe plant problems or upload photographs for AI-assisted analysis.
+Objective 4: Enable garden management
+Provide tools to record planting dates, watering activities, plant observations, and harvests.
+Objective 5: Improve accessibility
+Support English and Hausa text interactions, with voice capabilities treated as an enhancement if time permits.
+Objective 6: Demonstrate responsible AI
+Use an appropriate open-source or open-weight AI model, clearly document its license, and verify that the implementation meets the hackathon's requirements.
+Objective 7: Produce a demonstrable prototype
+Deliver a functional application that can be presented to hackathon judges.
+PART 2: TARGET USERS
+3. User Personas
+Persona 1: The Beginner Home Gardener
+Profile: Someone who wants to grow vegetables at home but has limited space.
+
+Needs:
+- Simple instructions.
+- Affordable setup recommendations.
+- Suitable crop suggestions.
+- Guidance on maintaining plants.
+Expected benefit: The ability to start a small vertical garden without needing extensive agricultural knowledge.
+Persona 2: The Small-Space Vegetable Grower
+Profile: Someone already growing vegetables in containers, stacked planters, or hydroponic systems.
+
+Needs:
+- Plant-health guidance.
+- Growing records.
+- Reminders.
+- Recommendations based on their growing method.
+Expected benefit: Better organization and more informed growing decisions.
+Persona 3: The Hausa-Speaking Beginner
+Profile: Someone who prefers receiving explanations in Hausa.
+
+Needs:
+- Understandable agricultural explanations.
+- Hausa-language questions and answers.
+- Clear, accessible instructions.
+Expected benefit: Easier access to useful growing information.
+PART 3: CORE FUNCTIONAL REQUIREMENTS
+The following features define the product.
+4. Feature One: AI Vertical Garden Planner
+Purpose
+Help users develop a personalized vertical-garden plan.
+User inputs
+The user should be able to enter:
+- Available growing space.
+- Approximate budget in Nigerian naira.
+- Preferred vegetables.
+- Growing method.
+- Available sunlight.
+- Water availability.
+- Experience level.
+Growing methods
+Include:
+1. Soil-based vertical gardening.
+2. Container-based gardening.
+3. Hydroponics.
+The application should explain that hydroponics requires different equipment and management from soil-based gardening.
+Expected output
+The system should generate a garden plan containing:
+- Recommended growing arrangement.
+- Suggested crops.
+- Approximate materials list.
+- Estimated setup costs where reliable prices are available.
+- Basic planting instructions.
+- General maintenance guidance.
+- Important safety considerations.
+- Assumptions and limitations.
+Example scenario
+A user enters:
+- Space: Small backyard.
+- Budget: ₦20,000.
+- Crops: Lettuce and spinach.
+- Growing method: Soil-based containers.
+- Sunlight: Approximately six hours daily.
+The application generates a suggested setup, a materials checklist, and instructions for getting started.
+
+The generated plan must respect the user's budget where possible. If the budget is insufficient, the application should explain the shortfall and offer a simpler alternative.
+
+Important: Cost estimates must be identified as estimates. Do not invent current market prices and present them as verified facts.
+Acceptance criteria
+The feature is complete when:
+- Users can enter their growing preferences.
+- The system validates the inputs.
+- A plan is generated.
+- The result includes a materials list and growing instructions.
+- The user can save the plan to their garden.
+- Invalid or incomplete inputs produce understandable error messages.
+5. Feature Two: AI Plant Doctor
+Purpose
+Help users investigate potential plant-health problems using text descriptions and photographs.
+
+This is one of the most important features of Sauti Verti AI.
+User inputs
+Users can:
+- Describe symptoms.
+- Upload a plant photograph.
+- Identify the crop.
+- Select the growing method.
+- Describe recent changes in watering or growing conditions.
+Example questions
+- Why are my lettuce leaves turning yellow?
+- Why are my tomato leaves curling?
+- Why is my plant growing slowly?
+- What could be causing spots on my leaves?
+- How can I investigate possible nutrient deficiencies?
+Expected AI response
+The system should provide:
+1. A summary of the reported symptoms.
+2. Possible causes, ordered cautiously by plausibility.
+3. Follow-up questions when necessary.
+4. Practical checks the user can perform.
+5. Suggested next steps.
+6. An explanation of uncertainty.
+7. A recommendation to consult a qualified agricultural expert when appropriate.
+Photograph analysis
+When a user uploads a photograph, the application should send it to a vision-capable model or another explicitly implemented image-analysis system.
+
+The system must not pretend to analyze an image if the selected AI model cannot process images.
+
+If image analysis is unavailable, it should explain the limitation and allow the user to describe the symptoms in text.
+Safety requirements
+The Plant Doctor must:
+- Avoid claiming certainty without sufficient evidence.
+- Avoid recommending pesticides without appropriate context and safeguards.
+- Avoid unsupported fertilizer dosages.
+- Ask clarifying questions when the available information is inadequate.
+- Encourage users to follow product labels and qualified agricultural advice where necessary.
+Acceptance criteria
+The feature is complete when:
+- A user can submit a text question.
+- The application returns a relevant AI-generated response.
+- Users can upload a supported image format.
+- The image is processed by an actual image-capable model if that feature is enabled.
+- The application displays limitations when confidence is low or analysis fails.
+- The user can save a useful observation to their garden records.
+6. Feature Three: Smart Plant-Care Assistant
+Purpose
+Help users manage their gardens through practical guidance and reminders.
+Required capabilities
+The assistant should provide:
+- Watering guidance.
+- General nutrient-management advice.
+- Sunlight recommendations.
+- Plant-spacing guidance.
+- Growing-stage explanations.
+- Routine plant-inspection reminders.
+- Troubleshooting support.
+Personalization
+Recommendations should consider the information the user has provided about their garden, including:
+- Crop.
+- Growing method.
+- Planting date.
+- Growing conditions.
+- Previous observations.
+- Recorded watering activities.
+The system should not assume that all plants need the same watering frequency.
+Reminder functionality
+Users should be able to:
+- Create a reminder.
+- Select a date and time.
+- View upcoming reminders.
+- Mark reminders as completed.
+- Delete reminders.
+For the initial prototype, reminders can be managed within the application. Browser notifications can be added if time permits.
+Acceptance criteria
+The feature is complete when users can create, view, complete, and delete reminders, and the assistant can provide crop-specific care guidance.
+7. Feature Four: My Garden Dashboard
+Purpose
+Provide a central location for managing the user's garden.
+Dashboard components
+The dashboard should display:
+
+Garden summary
+- Total plants recorded.
+- Number of active garden projects.
+- Upcoming reminders.
+- Recent activities.
+Garden cards
+- Garden name.
+- Crops being grown.
+- Growing method.
+- Planting date.
+- Current status.
+- Latest observation.
+Recent activity
+- Plants added.
+- Watering records.
+- Health observations.
+- Harvest records.
+Garden management
+Users should be able to:
+- Create a garden.
+- Edit garden information.
+- Add plants or crops.
+- Record planting dates.
+- Record observations.
+- Track watering activities.
+- Record harvests.
+- Delete records when necessary.
+Acceptance criteria
+All garden information must be saved persistently. Refreshing the browser should not erase saved records.
+
+If authentication and cloud storage are not yet implemented, local persistence may be used for the demonstration, with its limitations clearly documented.
+PART 4: ADDITIONAL PRODUCT FEATURES
+8. English and Hausa Language Support
+The interface should initially support English.
+
+Hausa-language support should be implemented for the AI assistant where feasible.
+Requirements
+- Provide a language selector.
+- Allow users to ask questions in supported languages.
+- Request answers in the selected language.
+- Use simple, understandable language.
+- Avoid silently changing the user's selected language.
+The application should not claim complete Hausa-language support until it has been tested with representative questions.
+
+Voice input and spoken responses are desirable enhancements, not requirements for the first working prototype.
+9. User Authentication
+If time and infrastructure permit, implement authentication so users can securely access their own garden records.
+
+For a hackathon prototype, authentication should not be allowed to delay the core planner and AI assistant.
+
+If the application stores information locally without authentication, explain that the records are limited to that browser and device.
+10. Open-Source Contribution
+Prepare the project for public collaboration.
+
+Include:
+- A public GitHub repository.
+- A suitable open-source license.
+- A README file.
+- Installation instructions.
+- Environment-variable documentation.
+- A description of the AI model used.
+- A list of known limitations.
+- Instructions for testing the application.
+Verify the license of the AI model and every important dependency.
+
+Do not describe a model as open source merely because its weights are publicly downloadable.
+PART 5: USER INTERFACE AND USER EXPERIENCE
+11. Design Direction
+Create a modern, professional, green-themed dashboard.
+
+The interface should feel like a trustworthy agricultural technology product rather than a generic chatbot.
+Design principles
+- Clean and professional.
+- Nature-inspired.
+- Easy for beginners.
+- Mobile-responsive.
+- Accessible.
+- Consistent.
+- Visually polished.
+- Simple navigation.
+Color palette
+Use the following proposed palette:
+Color	Hex code	Purpose
+Forest Green	#14532D	Main navigation and headings
+Primary Green	#15803D	Primary buttons and actions
+Fresh Green	#22C55E	Highlights and progress indicators
+Pale Green	#DCFCE7	Light backgrounds and success cards
+Off White	#F8FAF7	Main application background
+Charcoal	#1F2937	Primary text
+Amber	#F59E0B	Warnings
+Red	#DC2626	Errors and important alerts
+
+
+Use sufficient contrast between text and backgrounds.
+Typography
+Use a clear, modern sans-serif typeface.
+
+Typography should establish a consistent hierarchy between:
+- Page titles.
+- Section headings.
+- Body text.
+- Form labels.
+- Supporting information.
+- Status indicators.
+Components
+Use consistent components for:
+- Navigation.
+- Buttons.
+- Input fields.
+- Cards.
+- Forms.
+- Modals.
+- Alerts.
+- Progress indicators.
+- Image upload areas.
+- Loading states.
+- Empty states.
+Avoid excessive gradients, unnecessary animations, and decorative elements that reduce usability.
+12. Required Screens
+Screen 1: Landing Page
+Include:
+- Sauti Verti AI logo.
+- Product tagline.
+- A clear explanation of the product.
+- A prominent call-to-action.
+- An overview of the key features.
+- An illustration or photograph of vertical gardening.
+Suggested headline:
+
+"Your Intelligent Companion for Vertical Farming."
+
+Supporting text:
+
+"Plan your garden, get AI-powered advice, track your plants, and grow fresh vegetables in small spaces."
+
+Primary button: Start Growing
+Screen 2: Dashboard
+Include:
+- Welcome message.
+- Garden summary cards.
+- Active garden projects.
+- Upcoming reminders.
+- Recent activities.
+- Quick-action buttons.
+Quick actions:
+- Plan My Garden.
+- Ask AI Assistant.
+- Check Plant Health.
+- Track My Garden.
+Screen 3: Garden Planner
+Include a form for entering space, budget, crops, sunlight, water availability, and growing method.
+
+Display the resulting garden plan in an organized layout.
+
+Include a materials list and clearly labelled estimated costs where available.
+
+Provide a Save Garden Plan button.
+Screen 4: AI Assistant
+Include:
+- Conversation history.
+- A text input area.
+- A send button.
+- A language selector.
+- An image-upload option.
+- Loading indicators.
+- Clear error messages.
+- A way to save useful advice.
+The interface should distinguish user messages from AI responses.
+Screen 5: Plant Doctor
+Include:
+- Photo-upload area.
+- Crop selection.
+- Growing-method selection.
+- Symptom-description field.
+- Analyze button.
+- Results panel.
+- Possible causes.
+- Recommended checks.
+- Follow-up questions.
+Clearly indicate that AI-generated assessments may be incorrect.
+Screen 6: My Garden
+Include:
+- Garden overview.
+- Crop cards.
+- Planting information.
+- Growth observations.
+- Activity history.
+- Reminders.
+- Harvest records.
+Screen 7: Settings
+Include:
+- Language preferences.
+- Growing preferences.
+- Notification settings.
+- Basic account options if authentication is implemented.
+- Application information.
+- AI limitations and support information.
+Responsive behavior
+The application must work on:
+- Desktop browsers.
+- Laptop screens.
+- Tablets.
+- Mobile phones.
+The desktop dashboard may use a sidebar, while mobile screens should use a compact navigation pattern.
+PART 6: TECHNICAL REQUIREMENTS
+13. Recommended Technology Stack
+Choose technologies that are appropriate for a beginner and compatible with the hackathon requirements.
+
+The proposed stack is:
+Layer	Suggested technology	Purpose
+Frontend	React with TypeScript	Build the user interface
+Styling	Tailwind CSS	Create consistent responsive styling
+Icons	Lucide	Provide consistent interface icons
+Backend	A lightweight Node.js API or suitable framework	Handle AI requests and application logic
+Data storage	Supabase or another suitable database	Persist garden records
+AI	A suitable open-source or open-weight model	Generate agricultural guidance
+Image analysis	A compatible vision-capable model	Analyze plant photographs
+Version control	Git and GitHub	Track changes and publish the project
+Deployment	A suitable hosting platform	Make the prototype accessible
+
+
+Important: These are recommendations, not a requirement to use every technology.
+
+Before installing tools, check what is already available on my laptop and choose the simplest viable stack.
+
+If a simpler framework would allow us to finish the working application faster, explain the trade-offs and recommend it.
+
+Do not introduce unnecessary dependencies.
+AI model selection
+Investigate a suitable open-source or open-weight model that can:
+- Answer agricultural questions.
+- Follow structured instructions.
+- Generate understandable explanations.
+- Support the required languages to an acceptable degree.
+- Process images if plant-photo analysis is required.
+Consider Gemma and other appropriate models, but verify their current capabilities, licensing, access requirements, and compatibility with the event's rules.
+
+Do not assume that a text-only model can analyze images.
+
+If the preferred model cannot run locally, investigate an accessible inference service and explain any costs, rate limits, or internet requirements.
+
+Do not purchase paid services without asking me first.
+Backend security
+- Keep API keys out of frontend code.
+- Store secrets in environment variables.
+- Never commit .env files containing secrets.
+- Validate uploaded images.
+- Set appropriate upload-size limits.
+- Handle API failures safely.
+- Avoid exposing private user records.
+- Apply database access controls where supported.
+Data persistence
+Store garden records in a database or another reliable persistence mechanism.
+
+Use a consistent data structure for gardens, crops, observations, reminders, and harvest records.
+
+Do not present sample data as real user activity.
+PART 7: DATA MODEL
+14. Core Data Structures
+Design the application around the following entities.
+User
+Fields:
+- id
+- display_name
+- preferred_language
+- created_at
+Garden
+Fields:
+- id
+- user_id
+- name
+- available_space
+- budget
+- growing_method
+- sunlight_conditions
+- water_availability
+- created_at
+Crop
+Fields:
+- id
+- garden_id
+- crop_name
+- quantity
+- planting_date
+- growth_status
+- notes
+Plant Observation
+Fields:
+- id
+- crop_id
+- observation_date
+- symptoms
+- image_reference
+- ai_assessment
+- recommended_actions
+- follow_up_status
+Reminder
+Fields:
+- id
+- garden_id
+- title
+- description
+- scheduled_at
+- completed
+Garden Activity
+Fields:
+- id
+- garden_id
+- crop_id
+- activity_type
+- activity_date
+- notes
+Use appropriate relationships, validation, and database constraints.
+
+Do not store uploaded photographs as large database fields unless the chosen infrastructure specifically supports that design. Prefer suitable object storage with controlled access when available.
+
+If authentication is not implemented in the first prototype, adapt the data model accordingly rather than pretending that every record is linked to a verified user.
+PART 8: AI BEHAVIOR AND PROMPT DESIGN
+15. AI System Instructions
+The AI assistant must follow these rules:
+
+You are Sauti Verti AI, an agricultural assistant specializing in beginner-friendly vertical gardening and small-space vegetable growing.
+
+Your purpose is to help users make informed decisions about planning and managing their gardens.
+Your responsibilities
+1. Explain vertical-gardening concepts clearly.
+2. Help users plan gardens based on their actual constraints.
+3. Answer questions about growing methods and plant care.
+4. Help users investigate potential plant-health problems.
+5. Ask clarifying questions when necessary.
+6. Use garden records when they are available and relevant.
+7. Provide understandable explanations rather than unsupported conclusions.
+8. Support the user's selected language where possible.
+Rules for reliable answers
+- Do not invent scientific facts.
+- Do not invent current market prices.
+- Distinguish estimates from verified information.
+- State assumptions explicitly.
+- Explain uncertainty.
+- Do not diagnose plant diseases with unjustified certainty.
+- Do not recommend treatments without considering the crop and growing conditions.
+- Avoid unsupported chemical application instructions.
+- Recommend expert assistance when the problem exceeds the available evidence.
+Response structure
+For plant-care questions, prefer the following format:
+
+What may be happening: Summarize the possible problem.
+
+Possible causes: List plausible explanations.
+
+What to check: Suggest observations or measurements that could distinguish the causes.
+
+Recommended next steps: Give practical, proportionate actions.
+
+Confidence and limitations: Explain what remains uncertain.
+
+For garden-planning questions, include:
+- Recommended setup.
+- Materials required.
+- Estimated costs, where supported.
+- Growing instructions.
+- Important assumptions.
+- Potential risks.
+Keep responses concise enough to be useful on a mobile screen.
+PART 9: FUNCTIONAL AND NON-FUNCTIONAL REQUIREMENTS
+16. Functional Requirements
+The application must allow users to:
+1. Open the landing page.
+2. Navigate to the dashboard.
+3. Enter garden-planning information.
+4. Generate a garden plan.
+5. View and save the generated plan.
+6. Submit text questions to the AI assistant.
+7. Upload photographs if image analysis is implemented.
+8. Receive an AI-assisted plant-health assessment.
+9. Create and manage garden records.
+10. Record plant observations.
+11. Create and manage reminders.
+12. Access the interface in English.
+13. Use implemented Hausa-language capabilities.
+14. Receive useful feedback when an operation fails.
+17. Non-Functional Requirements
+Performance
+- Avoid unnecessary loading delays.
+- Show progress indicators during AI requests.
+- Handle slow connections gracefully.
+- Compress or resize images when appropriate.
+Reliability
+- Handle missing inputs.
+- Handle AI service failures.
+- Prevent duplicate submissions where practical.
+- Preserve saved garden records.
+- Provide clear recovery options after errors.
+Accessibility
+- Use readable text.
+- Support keyboard navigation where practical.
+- Label form fields.
+- Provide accessible buttons.
+- Do not rely on color alone to communicate status.
+Maintainability
+- Organize code into understandable components.
+- Use descriptive file names.
+- Keep API logic separate from presentation logic.
+- Document important implementation decisions.
+Privacy
+- Collect only necessary information.
+- Explain how photographs and garden records are handled.
+- Avoid collecting precise location unless necessary and explicitly authorized.
+- Do not send user photographs to external services without making that behavior clear.
+PART 10: HACKATHON MVP
+18. Minimum Viable Product
+We have limited preparation time, so the initial release must focus on the smallest useful set of features.
+Must-have features
+1. Professional dashboard
+
+A clean, responsive interface with a clear navigation system.
+
+2. Garden planner
+
+Users enter their available space, budget, growing method, and crops. The application generates a useful plan.
+
+3. Working AI assistant
+
+Users ask questions and receive responses from a real, integrated AI model.
+
+4. Plant Doctor
+
+Users can describe plant problems through text. Photograph analysis is included if we can integrate and test a compatible model.
+
+5. Garden records
+
+Users can save a garden plan and record observations.
+
+6. Open-source repository
+
+The project includes a README, license, setup instructions, and documented limitations.
+Features to add if time permits
+- Hausa-language voice input.
+- Spoken responses.
+- Browser notifications.
+- More advanced image analysis.
+- Detailed crop-growth analytics.
+- Offline functionality.
+- Authentication and cloud synchronization.
+Do not fake functionality to make the application appear complete.
+
+If a feature is not implemented, label it as planned or unavailable.
+PART 11: TESTING AND ACCEPTANCE
+19. Required Test Scenarios
+Before the project is presented, test the following.
+Test 1: Garden planning
+Input a small growing space, a limited budget, and two vegetables.
+
+Expected result: The application generates a plausible plan, identifies its assumptions, and provides a materials list.
+Test 2: Plant-health question
+Ask why lettuce leaves are turning yellow.
+
+Expected result: The assistant identifies multiple plausible causes and suggests appropriate checks rather than declaring a definite diagnosis without sufficient evidence.
+Test 3: Photograph upload
+Upload a valid plant photograph.
+
+Expected result: If a compatible vision model is configured, the application processes the image and displays an appropriately qualified assessment.
+
+If vision is unavailable, the application explains this and offers text-based assistance.
+Test 4: Garden persistence
+Save a garden plan and refresh the browser.
+
+Expected result: The saved plan remains available.
+Test 5: Reminder management
+Create a reminder, mark it completed, and delete another reminder.
+
+Expected result: Each action works and the displayed state remains correct.
+Test 6: Responsive layout
+Open the application on a desktop and a mobile-sized screen.
+
+Expected result: Navigation, forms, cards, and buttons remain usable.
+Test 7: AI failure
+Simulate an unavailable AI service.
+
+Expected result: The application displays a clear error message and does not crash.
+Test 8: Language selection
+Ask a supported question in English and then request a Hausa response.
+
+Expected result: The assistant attempts to respond in the requested language, and any unsupported language capabilities are documented honestly.
+PART 12: PROJECT DELIVERY
+20. Required Deliverables
+By the end of development, aim to have:
+1. A working Sauti Verti AI web application.
+2. A responsive user interface.
+3. A functioning vertical-garden planner.
+4. An integrated AI assistant.
+5. A plant-health workflow.
+6. Persistent garden records.
+7. A public GitHub repository.
+8. A suitable open-source license.
+9. A README with setup instructions.
+10. A short demonstration script.
+11. A list of known limitations.
+12. A brief explanation of the AI technology and its role.
+The project must be built and tested before the demonstration. Do not claim that features work unless they have been verified.
+PART 13: STEP-BY-STEP DEVELOPMENT INSTRUCTIONS
+21. How you should guide me
+This section is especially important.
+
+I am a beginner, so I need you to function as a patient technical mentor.
+
+Follow these stages in order.
+Stage 1: Project setup
+- Inspect my development environment through the tools available.
+- Explain the recommended technology stack.
+- Check whether Node.js and the necessary development tools are installed.
+- Help me create the project.
+- Explain the folder structure.
+- Start the application and verify that it runs.
+Stage 2: Interface development
+Build the landing page and dashboard.
+
+Match the visual direction described in this PRD.
+
+Make the layout responsive.
+
+Use realistic sample data only where necessary, and clearly separate sample data from actual saved records.
+Stage 3: Garden planner
+Create the planning form.
+
+Validate inputs.
+
+Generate a structured garden plan.
+
+Initially, use a transparent rules-based planner if needed, then integrate AI where it adds genuine value.
+Stage 4: AI integration
+Select a suitable model and integration method.
+
+Explain the setup requirements.
+
+Create a secure backend endpoint.
+
+Connect the frontend to the AI service.
+
+Test real questions and responses.
+
+Never expose API secrets in the frontend.
+Stage 5: Plant Doctor
+Implement text-based plant-health guidance.
+
+Add photograph upload and vision-model integration if the selected model supports it.
+
+Test both successful and unsuccessful requests.
+Stage 6: Garden tracking
+Implement the data model and persistence.
+
+Allow users to save gardens, record observations, and manage reminders.
+Stage 7: Testing and refinement
+Test all essential workflows.
+
+Fix errors before adding optional features.
+
+Improve loading states, validation, responsiveness, and error handling.
+Stage 8: GitHub and documentation
+Help me create a repository.
+
+Explain the commands before asking me to run them.
+
+Prepare the README and license.
+
+Check that secrets and private information are not committed.
+Stage 9: Demonstration preparation
+Help me prepare a three-minute demonstration covering:
+1. The problem.
+2. Our target users.
+3. The vertical-garden planner.
+4. The AI Plant Doctor.
+5. Our use of open-source AI.
+6. What makes our approach useful.
+7. Future improvements.
+Also prepare answers to likely judges' questions.
+PART 14: RULES FOR THE AI CODING ASSISTANT
+22. Development Rules
+Follow these instructions throughout development.
+1. Do not attempt to implement the entire application in one response.
+2. Start by checking the actual development environment and clarifying the tools available.
+3. Recommend a simple, feasible architecture.
+4. Build one feature at a time.
+5. Explain each important action in beginner-friendly language.
+6. Give complete, consistent code for the files being created or changed.
+7. Tell me the exact commands to run.
+8. Wait for feedback when an action requires verification.
+9. Troubleshoot errors using the actual error messages.
+10. Do not assume that a package or service is installed.
+11. Do not fabricate successful test results.
+12. Do not claim an AI model supports images or Hausa unless verified.
+13. Do not introduce paid services without discussing the cost and obtaining my approval.
+14. Keep the hackathon deadline in mind.
+15. Prioritize the working MVP over optional features.
+16. Explain important technical decisions so I can present the project confidently.
+17. Keep the implementation compatible with the hackathon's actual requirements.
+18. Do not claim that the project will win.
+19. Clearly distinguish implemented features from planned features.
+20. Make the application useful, testable, and understandable.
+PART 15: START THE PROJECT
+Your first task
+Before writing any code, do the following:
+1. Read and understand this PRD.
+2. Summarize the product in a few sentences.
+3. Identify the essential features for the hackathon MVP.
+4. Recommend the simplest suitable technology stack for a beginner.
+5. Explain how the proposed AI model will be integrated.
+6. Identify any important technical risks, especially image analysis, Hausa-language support, model access, and internet connectivity.
+7. Explain what we should build first and why.
+8. Ask me only for information that is genuinely necessary to begin.

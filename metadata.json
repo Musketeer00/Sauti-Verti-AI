@@ -1,0 +1,6 @@
+{
+  "name": "Sauti Verti AI",
+  "description": "Intelligent vertical-farming assistant for small-space vegetable growing with AI planning, plant-health guidance, and garden tracking in English and Hausa.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
